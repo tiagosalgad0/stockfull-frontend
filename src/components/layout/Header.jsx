@@ -1,13 +1,16 @@
+// Cabeçalho com a identificação do usuário e a saída da conta.
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../app/providers/AuthProvider'
 import './Header.css'
 
+// Mostra o cabeçalho e as ações ligadas à conta.
 export default function Header({ title, onMenuClick }) {
   const { user, logout } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate()
 
+  // Encerra a sessão quando a pessoa escolhe sair.
   async function handleLogout() {
     await logout()
     navigate('/login', { replace: true })

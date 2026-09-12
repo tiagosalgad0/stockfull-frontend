@@ -1,3 +1,4 @@
+// Formulário usado tanto para incluir quanto para ajustar um ingrediente.
 import { useState } from 'react'
 import Input from '../../../components/ui/Input'
 import Select from '../../../components/ui/Select'

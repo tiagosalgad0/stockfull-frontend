@@ -1,3 +1,4 @@
+// Visão geral do estoque para identificar rapidamente o que precisa de atenção.
 import { Link } from 'react-router-dom'
 import PageHeader from '../../../components/ui/PageHeader'
 import StatCard from '../../../components/ui/StatCard'
@@ -16,6 +17,7 @@ const MESES = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
 ]
 
+// Reúne um panorama rápido da situação do estoque.
 export default function Dashboard() {
   const { user } = useAuth()
   const { loading, ingredientes, fechamento, registros, listaCompras, metaPorIngrediente } =

@@ -1,3 +1,5 @@
+/* Cartões de resumo que dão contexto à lista de compras. */
+/* Arquivo: Compras.css */
 .compras__resumo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));

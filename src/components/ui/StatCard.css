@@ -1,3 +1,5 @@
+/* Hierarquia visual dos números de resumo. */
+/* Arquivo: StatCard.css */
 .stat-card {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,4 @@
+// Lista os fechamentos anteriores para que seja fácil consultar cada período.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageHeader from '../../../components/ui/PageHeader'
@@ -11,6 +12,7 @@ const MESES = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
 ]
 
+// Lista os fechamentos anteriores para consulta.
 export default function Historico() {
   const navigate = useNavigate()
   const [fechamentos, setFechamentos] = useState([])

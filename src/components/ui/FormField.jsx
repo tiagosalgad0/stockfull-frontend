@@ -1,5 +1,7 @@
+// Envolve cada campo com seu rótulo, ajuda e eventual recado de erro.
 import './Field.css'
 
+// Agrupa o campo, o rótulo e os recados que ajudam no preenchimento.
 export default function FormField({ label, htmlFor, error, hint, children }) {
   return (
     <div className={`field ${error ? 'field--error' : ''}`}>

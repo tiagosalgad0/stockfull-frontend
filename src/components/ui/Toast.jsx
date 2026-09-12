@@ -1,3 +1,4 @@
+// Lista de avisos rápidos que aparece por cima da página sem interromper o trabalho.
 import { createPortal } from 'react-dom'
 import './Toast.css'
 
@@ -8,6 +9,7 @@ const ICONS = {
   info: 'i',
 }
 
+// Exibe os avisos que estão ativos no momento.
 export default function ToastContainer({ toasts, onDismiss }) {
   if (toasts.length === 0) return null
 

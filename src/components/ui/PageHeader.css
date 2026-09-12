@@ -1,3 +1,5 @@
+/* Organização do título de uma página e de seus botões de ação. */
+/* Arquivo: PageHeader.css */
 .page-header {
   display: flex;
   align-items: flex-start;

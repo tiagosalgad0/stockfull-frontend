@@ -1,3 +1,4 @@
+// Tela que lista os ingredientes e abre as ações de criar, editar ou remover.
 import { useMemo, useState } from 'react'
 import PageHeader from '../../../components/ui/PageHeader'
 import Input from '../../../components/ui/Input'
@@ -13,6 +14,7 @@ import { situacaoRegistro } from '../../../utils/situacaoEstoque'
 import * as ingredienteService from '../services/ingredienteService'
 import { UNIDADE_LABEL } from '../services/ingredienteService'
 
+// Cuida da lista e das ações de manutenção dos ingredientes.
 export default function Ingredientes() {
   const toast = useToast()
   const { loading, erro, ingredientes, registroPorIngrediente, recarregar } = useEstoqueAtual()
@@ -31,16 +33,19 @@ export default function Ingredientes() {
     return ingredientes.filter((i) => i.nome.toLowerCase().includes(termo))
   }, [busca, ingredientes])
 
+  // Prepara a tela para cadastrar um novo ingrediente.
   function abrirNovo() {
     setEditando(null)
     setModalAberto(true)
   }
 
+  // Abre o formulário já preenchido com o ingrediente escolhido.
   function abrirEdicao(ingrediente) {
     setEditando(ingrediente)
     setModalAberto(true)
   }
 
+  // Envia os dados preenchidos depois de conferir o formulário.
   async function handleSubmit(valores) {
     setSalvando(true)
     try {
@@ -60,6 +65,7 @@ export default function Ingredientes() {
     }
   }
 
+  // Remove o ingrediente que foi confirmado pela pessoa usuária.
   async function confirmarExclusao() {
     setConfirmandoExclusao(true)
     try {

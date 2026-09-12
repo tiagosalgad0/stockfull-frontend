@@ -1,3 +1,5 @@
+/* Grade dos resumos e pequenos ajustes da página inicial. */
+/* Arquivo: Dashboard.css */
 .dashboard__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

@@ -1,3 +1,4 @@
+// Busca o retrato atual do estoque para as telas que precisam dele.
 import { useEffect, useState } from 'react'
 import * as ingredienteService from '../features/ingredientes/services/ingredienteService'
 import * as fechamentoService from '../features/fechamento/services/fechamentoService'
@@ -17,6 +18,7 @@ export function useEstoqueAtual() {
   useEffect(() => {
     let cancelado = false
 
+    // Cuida da ação chamada carregar nesta parte da tela.
     async function carregar() {
       setLoading(true)
       setErro('')

@@ -1,3 +1,5 @@
+/* Estilos compartilhados pelos botões e seus diferentes níveis de destaque. */
+/* Arquivo: Button.css */
 .btn {
   display: inline-flex;
   align-items: center;

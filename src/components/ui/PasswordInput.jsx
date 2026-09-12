@@ -1,7 +1,9 @@
+// Campo de senha que permite conferir o que foi digitado quando necessário.
 import { useId, useState } from 'react'
 import FormField from './FormField'
 import './Field.css'
 
+// Mostra o campo de senha e permite conferir o texto digitado.
 export default function PasswordInput({ label, error, hint, id, ...rest }) {
   const generatedId = useId()
   const fieldId = id || generatedId

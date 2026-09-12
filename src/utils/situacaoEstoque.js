@@ -1,3 +1,4 @@
+// Decide qual situação mais clara deve aparecer para cada ingrediente.
 // Deriva um rótulo de situação (para o StatusBadge) a partir dos dados já calculados
 // pelo backend — nunca reaplica a regra de negócio, só prioriza o que exibir.
 export function situacaoRegistro(registro, meta) {

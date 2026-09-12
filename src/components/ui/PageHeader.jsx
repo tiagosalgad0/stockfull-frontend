@@ -1,5 +1,7 @@
+// Título e descrição que apresentam cada página, com espaço opcional para uma ação.
 import './PageHeader.css'
 
+// Apresenta o título, a explicação e a ação principal da página.
 export default function PageHeader({ title, description, action }) {
   return (
     <div className="page-header">

@@ -1,3 +1,5 @@
+/* Aparência do logotipo, mantida separada para ele ficar igual em toda a aplicação. */
+/* Arquivo: Logo.css */
 .logo {
   display: inline-flex;
   align-items: center;

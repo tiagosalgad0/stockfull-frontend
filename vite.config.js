@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react'
+// Configuração simples para o Vite servir o site durante o desenvolvimento.
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/

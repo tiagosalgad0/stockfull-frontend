@@ -1,6 +1,8 @@
+// Resume o resultado do cálculo antes de a pessoa finalizar o período.
 import Card from '../../../components/ui/Card'
 import './FechamentoResumo.css'
 
+// Mostra os números principais encontrados no cálculo.
 export default function FechamentoResumo({ totalRegistros, totalCompras, totalFaltas }) {
   return (
     <Card className="fechamento-resumo">

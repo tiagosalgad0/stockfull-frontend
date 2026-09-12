@@ -1,3 +1,5 @@
+/* Aparência consistente dos campos de formulário e seus avisos. */
+/* Arquivo: Field.css */
 .field {
   display: flex;
   flex-direction: column;

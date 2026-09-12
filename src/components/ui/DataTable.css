@@ -1,3 +1,5 @@
+/* Regras para a tabela continuar legível, inclusive quando não couber toda na tela. */
+/* Arquivo: DataTable.css */
 .data-table__scroll {
   overflow-x: auto;
   border: 1px solid var(--color-border);

@@ -1,3 +1,5 @@
+/* Espaçamento e leitura confortável para os estados sem conteúdo. */
+/* Arquivo: EmptyState.css */
 .empty-state {
   display: flex;
   flex-direction: column;

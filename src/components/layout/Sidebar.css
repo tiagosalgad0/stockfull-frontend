@@ -1,3 +1,5 @@
+/* Visual do menu lateral e do item que está selecionado no momento. */
+/* Arquivo: Sidebar.css */
 .sidebar {
   width: var(--sidebar-width);
   flex-shrink: 0;

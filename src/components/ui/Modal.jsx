@@ -1,10 +1,13 @@
+// Janela sobreposta para confirmações e tarefas que merecem atenção exclusiva.
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import './Modal.css'
 
+// Abre uma janela de confirmação sem perder o contexto da página.
 export default function Modal({ open, onClose, title, children, footer, width = 480 }) {
   useEffect(() => {
     if (!open) return
+    // Fecha a janela ao pressionar Escape, um atalho esperado por quem navega pelo teclado.
     const onKeyDown = (e) => {
       if (e.key === 'Escape') onClose?.()
     }

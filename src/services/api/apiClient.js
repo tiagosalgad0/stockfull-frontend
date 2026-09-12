@@ -1,17 +1,21 @@
+// Porta de entrada para falar com o servidor e lidar com respostas de forma consistente.
 const API_URL = import.meta.env.VITE_API_URL || '/api'
 const TOKEN_KEY = 'stockfull_token'
 
 // Handlers registrados pelo AuthContext para reagir a uma sessão que expirou.
 let onUnauthorized = null
 
+// Registra o que deve acontecer quando a sessão expirar.
 export function setUnauthorizedHandler(handler) {
   onUnauthorized = handler
 }
 
+// Lê o acesso salvo neste navegador.
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
 }
 
+// Guarda ou apaga o acesso salvo neste navegador.
 export function setToken(token) {
   if (token) {
     localStorage.setItem(TOKEN_KEY, token)
@@ -21,6 +25,7 @@ export function setToken(token) {
 }
 
 export class ApiError extends Error {
+  // Cria o erro com as informações que ajudam a entender o que aconteceu.
   constructor(message, { status, data } = {}) {
     super(message)
     this.name = 'ApiError'
@@ -63,6 +68,7 @@ function extrairMensagem(data, status) {
   return mensagemPadrao(status)
 }
 
+// Faz uma solicitação ao servidor e organiza a resposta.
 export async function request(path, { method = 'GET', body, params, signal } = {}) {
   const token = getToken()
   const headers = { Accept: 'application/json' }

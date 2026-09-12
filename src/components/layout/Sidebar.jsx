@@ -1,3 +1,4 @@
+// Menu principal para trocar de área sem sair do sistema.
 import { NavLink } from 'react-router-dom'
 import Logo from '../branding/Logo'
 import './Sidebar.css'
@@ -19,6 +20,7 @@ const GRUPOS = [
   },
 ]
 
+// Monta os links do menu principal.
 export default function Sidebar({ open, onNavigate }) {
   return (
     <aside className={`sidebar ${open ? 'sidebar--open' : ''}`}>
