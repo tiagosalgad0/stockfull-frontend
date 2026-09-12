@@ -1,10 +1,71 @@
 .login {
   min-height: 100vh;
   display: flex;
+}
+
+.login__panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+}
+
+.login__panel--brand {
+  background: var(--color-surface);
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.login__panel--form {
+  background: var(--color-background);
   align-items: center;
   justify-content: center;
-  background: var(--color-background);
-  padding: var(--space-4);
+}
+
+.login__brand-top {
+  align-self: flex-start;
+}
+
+.login__brand-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  max-width: 360px;
+}
+
+.login__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px dashed var(--color-border);
+  background: var(--color-primary-soft);
+}
+
+.login__brand-title {
+  font-size: var(--font-size-section-title);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.login__brand-text {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+}
+
+.login__copyright {
+  color: var(--color-text-secondary);
+  font-size: 12.5px;
+}
+
+.login__copyright--mobile {
+  display: none;
+  margin-top: var(--space-6);
 }
 
 .login__card {
@@ -17,17 +78,18 @@
   padding: var(--space-6);
 }
 
-.login__logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-3);
+.login__title {
+  font-size: var(--font-size-section-title);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
 }
 
 .login__subtitle {
-  text-align: center;
   color: var(--color-text-secondary);
-  font-size: 14px;
-  margin-bottom: var(--space-6);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  margin-bottom: var(--space-5);
 }
 
 .login__form {
@@ -42,4 +104,22 @@
   background: var(--color-danger-soft);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
+}
+
+@media (max-width: 860px) {
+  .login {
+    flex-direction: column;
+  }
+
+  .login__panel--brand {
+    display: none;
+  }
+
+  .login__panel--form {
+    min-height: 100vh;
+  }
+
+  .login__copyright--mobile {
+    display: block;
+  }
 }
