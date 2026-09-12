@@ -1,0 +1,28 @@
+.fechamento-resumo__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.fechamento-resumo__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.fechamento-resumo__value {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.fechamento-resumo__label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 560px) {
+  .fechamento-resumo__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}

@@ -1,0 +1,21 @@
+.compras__resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.compras__resumo-item {
+  text-align: left;
+}
+
+.compras__resumo-valor {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.compras__resumo-label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
