@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import * as ingredienteService from '../services/ingredienteService'
-import * as fechamentoService from '../services/fechamentoService'
+import * as ingredienteService from '../features/ingredientes/services/ingredienteService'
+import * as fechamentoService from '../features/fechamento/services/fechamentoService'
 
 // Reúne, num só lugar, os três dados que Dashboard, Estoque e Compras precisam cruzar:
 // os ingredientes cadastrados, o fechamento mais recente e os registros desse fechamento.
