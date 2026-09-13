@@ -10,6 +10,14 @@ import './Login.css'
 
 const ANO_ATUAL = new Date().getFullYear()
 
+const DESTAQUES = [
+  'Controle de estoque em tempo real',
+  'Fechamentos e relatórios automáticos',
+  'Acesso seguro para toda a equipe',
+]
+
+const BARRAS_PREVIEW = [38, 62, 48, 80, 58, 92, 70]
+
 // Cuida da tela em que a pessoa entra na conta.
 export default function Login() {
   const { login } = useAuth()
@@ -54,22 +62,70 @@ export default function Login() {
       <div className="login__panel login__panel--brand">
         <div className="login__brand-top">
           <Logo />
+          <span className="login__badge">Ambiente seguro</span>
         </div>
 
         <div className="login__brand-middle">
-          <div className="login__illustration" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="40" height="40">
-              <rect x="10" y="14" width="10" height="10" rx="2" fill="var(--color-primary)" opacity="0.85" />
-              <rect x="24" y="10" width="10" height="14" rx="2" fill="var(--color-primary)" />
-              <rect x="38" y="18" width="10" height="6" rx="2" fill="var(--color-primary)" opacity="0.6" />
-              <rect x="10" y="30" width="38" height="6" rx="2" fill="var(--color-border)" />
-              <rect x="10" y="42" width="24" height="6" rx="2" fill="var(--color-border)" />
-            </svg>
-          </div>
-          <h2 className="login__brand-title">Tenha uma visão clara do seu estoque.</h2>
+          <p className="login__eyebrow">Painel de gestão</p>
+          <h2 className="login__brand-title">
+            Tenha uma visão clara <span>do seu estoque</span>.
+          </h2>
           <p className="login__brand-text">
             Controle ingredientes, acompanhe níveis de estoque e realize fechamentos com mais organização.
           </p>
+
+          <div className="login__preview" aria-hidden="true">
+            <div className="login__preview-header">
+              <span className="login__preview-dot login__preview-dot--red" />
+              <span className="login__preview-dot login__preview-dot--yellow" />
+              <span className="login__preview-dot login__preview-dot--green" />
+              <span className="login__preview-title">Visão geral do estoque</span>
+            </div>
+
+            <div className="login__preview-stats">
+              <div className="login__preview-stat">
+                <span className="login__preview-stat-label">Itens ativos</span>
+                <span className="login__preview-stat-value">1.284</span>
+              </div>
+              <div className="login__preview-stat">
+                <span className="login__preview-stat-label">Alertas</span>
+                <span className="login__preview-stat-value login__preview-stat-value--warning">6</span>
+              </div>
+              <div className="login__preview-stat">
+                <span className="login__preview-stat-label">Fechamentos</span>
+                <span className="login__preview-stat-value login__preview-stat-value--success">32</span>
+              </div>
+            </div>
+
+            <div className="login__preview-chart">
+              {BARRAS_PREVIEW.map((altura, i) => (
+                <span
+                  key={i}
+                  className={`login__preview-bar ${i === BARRAS_PREVIEW.length - 1 ? 'login__preview-bar--active' : ''}`}
+                  style={{ height: `${altura}%` }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <ul className="login__highlights">
+            {DESTAQUES.map((item) => (
+              <li key={item} className="login__highlight">
+                <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="rgba(255,255,255,0.12)" />
+                  <path
+                    d="M6 10.5 8.5 13 14 7"
+                    stroke="#93c5fd"
+                    strokeWidth="1.8"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <p className="login__copyright">© {ANO_ATUAL} StockFull</p>
@@ -77,6 +133,7 @@ export default function Login() {
 
       <div className="login__panel login__panel--form">
         <div className="login__card">
+          <span className="login__welcome">Bem-vindo de volta</span>
           <h1 className="login__title">Entrar na sua conta</h1>
           <p className="login__subtitle">Acesse o StockFull para acompanhar e gerenciar seu estoque.</p>
 
@@ -99,6 +156,11 @@ export default function Login() {
 
             {formError && (
               <p className="login__error" role="alert">
+                <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                  <circle cx="10" cy="10" r="10" fill="var(--color-danger-soft)" />
+                  <path d="M10 6v5" stroke="var(--color-danger)" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="10" cy="13.5" r="1" fill="var(--color-danger)" />
+                </svg>
                 {formError}
               </p>
             )}
@@ -106,6 +168,8 @@ export default function Login() {
             <Button type="submit" fullWidth loading={loading}>
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
+
+            <p className="login__help">Problemas para entrar? Fale com o administrador do sistema.</p>
           </form>
         </div>
 
