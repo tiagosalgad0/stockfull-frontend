@@ -84,7 +84,7 @@ export default function HistoricoDetalhe() {
         title={`Detalhes do fechamento — ${MESES[fechamento.mes - 1]}/${fechamento.ano}`}
         description={
           fechamento.data_fechamento
-            ? `Encerrado em ${new Date(fechamento.data_fechamento + 'T00:00:00').toLocaleDateString('pt-BR')}`
+            ? `Encerrado em ${new Date(fechamento.data_fechamento).toLocaleDateString('pt-BR')}`
             : 'Período ainda aberto.'
         }
         action={<StatusBadge status={fechamento.status === 'FECHADO' ? 'concluido' : 'aberto'} />}

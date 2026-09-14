@@ -8,6 +8,7 @@
 }
 
 .dashboard__section-title {
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -43,6 +44,11 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--color-border);
   font-size: 14px;
+  transition: background var(--transition-fast);
+}
+
+.dashboard__alert-item:hover {
+  background: var(--color-background);
 }
 
 .dashboard__alert-item:last-child {

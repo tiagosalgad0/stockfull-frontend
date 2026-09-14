@@ -28,7 +28,10 @@ export default function Header({ title, onMenuClick }) {
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
         >
-          {user?.username || 'Usuário'} <span aria-hidden="true">▾</span>
+          <span className="header__avatar" aria-hidden="true">
+            {(user?.username || 'U').charAt(0).toUpperCase()}
+          </span>
+          {user?.username || 'Usuário'} <span className="header__chevron" aria-hidden="true">▾</span>
         </button>
         {menuOpen && (
           <div className="header__dropdown" onMouseLeave={() => setMenuOpen(false)}>

@@ -1,11 +1,11 @@
-// Busca o retrato atual do estoque para as telas que precisam dele.
+// Busca o retrato atual do estoque para as telas que precisam dele
 import { useEffect, useState } from 'react'
 import * as ingredienteService from '../features/ingredientes/services/ingredienteService'
 import * as fechamentoService from '../features/fechamento/services/fechamentoService'
 
 // Reúne, num só lugar, os três dados que Dashboard, Estoque e Compras precisam cruzar:
-// os ingredientes cadastrados, o fechamento mais recente e os registros desse fechamento.
-// Cada tela decide o que fazer com isso; aqui só buscamos e organizamos.
+// os ingredientes cadastrados, o fechamento mais recente e os registros desse fechamento
+// Cada tela decide o que fazer com isso; aqui só buscamos e organizamos
 export function useEstoqueAtual() {
   const [loading, setLoading] = useState(true)
   const [erro, setErro] = useState('')
@@ -18,7 +18,7 @@ export function useEstoqueAtual() {
   useEffect(() => {
     let cancelado = false
 
-    // Cuida da ação chamada carregar nesta parte da tela.
+    // Cuida da ação chamada carregar nesta parte da tela
     async function carregar() {
       setLoading(true)
       setErro('')
@@ -58,7 +58,7 @@ export function useEstoqueAtual() {
     }
   }, [recarregarContador])
 
-  // Mapa rápido de ingredienteId -> meta, já que o registro não traz a meta junto.
+  // Mapa rápido de ingredienteId -> meta, já que o registro não traz a meta junto
   const metaPorIngrediente = Object.fromEntries(ingredientes.map((i) => [i.id, i.meta]))
   const registroPorIngrediente = Object.fromEntries(registros.map((r) => [r.ingrediente, r]))
 

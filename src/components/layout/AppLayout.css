@@ -34,6 +34,17 @@
     position: fixed;
     inset: 0;
     background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(1px);
     z-index: 80;
+    animation: app-layout-scrim-in 0.15s ease;
+  }
+
+  @keyframes app-layout-scrim-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }

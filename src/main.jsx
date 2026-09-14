@@ -1,4 +1,4 @@
-// Ponto de partida: coloca toda a aplicação React dentro da página.
+// Ponto de partida: coloca toda a aplicação React dentro da página
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/globals.css'

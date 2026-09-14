@@ -1,10 +1,41 @@
 /* Hierarquia visual dos números de resumo. */
 /* Arquivo: StatCard.css */
 .stat-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   min-width: 0;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-primary);
+  opacity: 0.7;
+}
+
+.stat-card--neutral::before {
+  background: var(--color-border);
+}
+
+.stat-card--warning::before {
+  background: var(--color-warning);
+}
+
+.stat-card--danger::before {
+  background: var(--color-danger);
 }
 
 .stat-card__title {

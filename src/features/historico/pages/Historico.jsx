@@ -32,7 +32,7 @@ export default function Historico() {
     {
       key: 'data_fechamento',
       header: 'Data de encerramento',
-      render: (row) => (row.data_fechamento ? new Date(row.data_fechamento + 'T00:00:00').toLocaleDateString('pt-BR') : '—'),
+      render: (row) => (row.data_fechamento ? new Date(row.data_fechamento).toLocaleDateString('pt-BR') : '—'),
     },
     {
       key: 'status',

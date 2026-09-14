@@ -1,21 +1,21 @@
-// Porta de entrada para falar com o servidor e lidar com respostas de forma consistente.
+// Porta de entrada para falar com o servidor e lidar com respostas de forma consistente
 const API_URL = import.meta.env.VITE_API_URL || '/api'
 const TOKEN_KEY = 'stockfull_token'
 
-// Handlers registrados pelo AuthContext para reagir a uma sessão que expirou.
+// Handlers registrados pelo AuthContext para reagir a uma sessão que expirou
 let onUnauthorized = null
 
-// Registra o que deve acontecer quando a sessão expirar.
+// Registra o que deve acontecer quando a sessão expirar
 export function setUnauthorizedHandler(handler) {
   onUnauthorized = handler
 }
 
-// Lê o acesso salvo neste navegador.
+// Lê o acesso salvo neste navegador
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
 }
 
-// Guarda ou apaga o acesso salvo neste navegador.
+// Guarda ou apaga o acesso salvo neste navegador
 export function setToken(token) {
   if (token) {
     localStorage.setItem(TOKEN_KEY, token)
@@ -25,7 +25,7 @@ export function setToken(token) {
 }
 
 export class ApiError extends Error {
-  // Cria o erro com as informações que ajudam a entender o que aconteceu.
+  // Cria o erro com as informações que ajudam a entender o que aconteceu
   constructor(message, { status, data } = {}) {
     super(message)
     this.name = 'ApiError'
@@ -34,7 +34,7 @@ export class ApiError extends Error {
   }
 }
 
-// Traduz erros técnicos em mensagens que fazem sentido para quem usa o sistema.
+// Traduz erros técnicos em mensagens que fazem sentido para quem usa o sistema
 function mensagemPadrao(status) {
   switch (status) {
     case 400:
@@ -52,7 +52,7 @@ function mensagemPadrao(status) {
   }
 }
 
-// Extrai a primeira mensagem útil de um payload de erro do DRF (formatos variam por serializer).
+// Extrai a primeira mensagem útil de um payload de erro do DRF (formatos variam por serializer)
 function extrairMensagem(data, status) {
   if (!data) return mensagemPadrao(status)
   if (typeof data.detail === 'string') return data.detail
@@ -68,11 +68,13 @@ function extrairMensagem(data, status) {
   return mensagemPadrao(status)
 }
 
-// Faz uma solicitação ao servidor e organiza a resposta.
+// Faz uma solicitação ao servidor e organiza a resposta
 export async function request(path, { method = 'GET', body, params, signal } = {}) {
   const token = getToken()
   const headers = { Accept: 'application/json' }
-  if (token) headers.Authorization = `Token ${token}`
+  // O login precisa ficar acessível mesmo com um token velho/inválido salvo no navegador;
+  // do contrário o próprio token expirado bloqueia a tentativa de entrar de novo
+  if (token && path !== '/auth/login/') headers.Authorization = `Token ${token}`
 
   let url = `${API_URL}${path}`
   if (params) {
@@ -103,7 +105,11 @@ export async function request(path, { method = 'GET', body, params, signal } = {
   const data = contentType.includes('application/json') ? await response.json() : null
 
   if (!response.ok) {
-    if (response.status === 401 && onUnauthorized) onUnauthorized()
+    if (response.status === 401) {
+      // Token rejeitado pelo servidor: descarta para não continuar sendo reenviado em toda chamada
+      setToken(null)
+      if (onUnauthorized) onUnauthorized()
+    }
     throw new ApiError(extrairMensagem(data, response.status), { status: response.status, data })
   }
 
@@ -119,12 +125,12 @@ export const apiClient = {
 }
 
 // A API pagina listas (DRF PageNumberPagination); a maioria das telas cabe em uma página,
-// mas isso garante que nenhum item fique escondido caso o cadastro cresça.
+// mas isso garante que nenhum item fique escondido caso o cadastro cresça
 export async function listarTodos(path, params) {
   let resultado = await apiClient.get(path, { params })
   const itens = [...resultado.results]
   while (resultado.next) {
-    // "next" vem absoluto (outra origem); reaproveita só a query string para continuar no proxy do Vite.
+    // "next" vem absoluto (outra origem); reaproveita só a query string para continuar no proxy do Vite
     const proximaPagina = new URL(resultado.next).search
     resultado = await apiClient.get(`${path}${proximaPagina}`)
     itens.push(...resultado.results)
