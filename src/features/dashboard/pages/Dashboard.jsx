@@ -1,4 +1,4 @@
-// Visão geral do estoque para identificar rapidamente o que precisa de atenção.
+// Visão geral do estoque para identificar rapidamente o que precisa de atenção
 import { Link } from 'react-router-dom'
 import PageHeader from '../../../components/ui/PageHeader'
 import StatCard from '../../../components/ui/StatCard'
@@ -17,7 +17,7 @@ const MESES = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
 ]
 
-// Reúne um panorama rápido da situação do estoque.
+// Reúne um panorama rápido da situação do estoque
 export default function Dashboard() {
   const { user } = useAuth()
   const { loading, ingredientes, fechamento, registros, listaCompras, metaPorIngrediente } =
@@ -26,7 +26,7 @@ export default function Dashboard() {
   const calculado = registros.some((r) => r.estoque_final !== null && r.estoque_final !== undefined)
 
   // Cada registro que precisa de atenção ganha uma situação (falta/atenção) e vira uma
-  // linha de alerta — os mais graves (falta) sempre aparecem primeiro.
+  // linha de alerta — os mais graves (falta) sempre aparecem primeiro
   const alertas = registros
     .map((r) => ({ registro: r, situacao: situacaoRegistro(r, metaPorIngrediente[r.ingrediente]) }))
     .filter((a) => a.situacao !== 'normal')

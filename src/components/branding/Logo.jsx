@@ -1,7 +1,7 @@
-// Logotipo reaproveitado nos pontos em que a marca StockFull aparece.
+// Logotipo reaproveitado nos pontos em que a marca StockFull aparece
 import './Logo.css'
 
-// Desenha o logotipo com o tamanho pedido pela tela.
+// Desenha o logotipo com o tamanho pedido pela tela
 export default function Logo({ size = 'md' }) {
   return (
     <div className={`logo logo--${size}`}>

@@ -1,4 +1,4 @@
-// Mostra a reposição sugerida para o fechamento de estoque que está em andamento.
+// Mostra a reposição sugerida para o fechamento de estoque que está em andamento
 import { Link } from 'react-router-dom'
 import PageHeader from '../../../components/ui/PageHeader'
 import Card from '../../../components/ui/Card'
@@ -11,7 +11,7 @@ import { useEstoqueAtual } from '../../../hooks/useEstoqueAtual'
 import { UNIDADE_LABEL } from '../../ingredientes/services/ingredienteService'
 import './Compras.css'
 
-// Mostra a reposição sugerida para o fechamento de estoque que está em andamento.
+// Mostra a reposição sugerida para o fechamento de estoque que está em andamento
 export default function Compras() {
   const { loading, fechamento, listaCompras, registroPorIngrediente } = useEstoqueAtual()
 

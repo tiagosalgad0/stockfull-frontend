@@ -1,4 +1,4 @@
-// Tela que lista os ingredientes e abre as ações de criar, editar ou remover.
+// Tela que lista os ingredientes e abre as ações de criar, editar ou remover
 import { useMemo, useState } from 'react'
 import PageHeader from '../../../components/ui/PageHeader'
 import Input from '../../../components/ui/Input'
@@ -14,7 +14,7 @@ import { situacaoRegistro } from '../../../utils/situacaoEstoque'
 import * as ingredienteService from '../services/ingredienteService'
 import { UNIDADE_LABEL } from '../services/ingredienteService'
 
-// Cuida da lista e das ações de manutenção dos ingredientes.
+// Cuida da lista e das ações de manutenção dos ingredientes
 export default function Ingredientes() {
   const toast = useToast()
   const { loading, erro, ingredientes, registroPorIngrediente, recarregar } = useEstoqueAtual()
@@ -33,19 +33,19 @@ export default function Ingredientes() {
     return ingredientes.filter((i) => i.nome.toLowerCase().includes(termo))
   }, [busca, ingredientes])
 
-  // Prepara a tela para cadastrar um novo ingrediente.
+  // Prepara a tela para cadastrar um novo ingrediente
   function abrirNovo() {
     setEditando(null)
     setModalAberto(true)
   }
 
-  // Abre o formulário já preenchido com o ingrediente escolhido.
+  // Abre o formulário já preenchido com o ingrediente escolhido
   function abrirEdicao(ingrediente) {
     setEditando(ingrediente)
     setModalAberto(true)
   }
 
-  // Envia os dados preenchidos depois de conferir o formulário.
+  // Envia os dados preenchidos depois de conferir o formulário
   async function handleSubmit(valores) {
     setSalvando(true)
     try {
@@ -65,7 +65,7 @@ export default function Ingredientes() {
     }
   }
 
-  // Remove o ingrediente que foi confirmado pela pessoa usuária.
+  // Remove o ingrediente que foi confirmado pela pessoa usuária
   async function confirmarExclusao() {
     setConfirmandoExclusao(true)
     try {
@@ -103,8 +103,8 @@ export default function Ingredientes() {
       render: (row) => {
         if (!row.ativo) return <StatusBadge status="falta" />
         const registro = registroPorIngrediente[row.id]
-        // Sem registro calculado no período atual, ainda não dá pra dizer a situação do estoque —
-        // só mostramos se o ingrediente está ativo, sem inventar uma situação que não existe.
+        // Sem registro calculado no período atual, ainda não dá pra dizer a situação do estoque
+        // só mostra se o ingrediente está ativo
         if (!registro) return <span style={{ color: 'var(--color-text-secondary)' }}>Sem dados no período</span>
         return <StatusBadge status={situacaoRegistro(registro, row.meta)} />
       },

@@ -1,4 +1,4 @@
-// Moldura padrão das páginas internas: menu lateral, cabeçalho e conteúdo.
+// Moldura padrão das páginas internas: menu lateral, cabeçalho e conteúdo
 import { useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Sidebar from './Sidebar'
@@ -13,7 +13,7 @@ const TITLES = [
   { prefix: '/historico', title: 'Histórico' },
 ]
 
-// Monta a estrutura comum das páginas internas.
+// Monta a estrutura comum das páginas internas
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()

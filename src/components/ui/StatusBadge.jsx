@@ -1,4 +1,4 @@
-// Traduz os nomes internos de situação para etiquetas fáceis de entender.
+// Traduz os nomes internos de situação para etiquetas fáceis de entender
 import Badge from './Badge'
 
 const STATUS_MAP = {
@@ -9,7 +9,7 @@ const STATUS_MAP = {
   concluido: { tone: 'neutral', label: 'Concluído' },
 }
 
-// Converte a situação do estoque em uma etiqueta clara.
+// Converte a situação do estoque em uma etiqueta clara
 export default function StatusBadge({ status }) {
   const config = STATUS_MAP[status] || { tone: 'neutral', label: status }
   return <Badge tone={config.tone}>{config.label}</Badge>

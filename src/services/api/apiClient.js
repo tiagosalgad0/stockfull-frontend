@@ -72,7 +72,7 @@ function extrairMensagem(data, status) {
 export async function request(path, { method = 'GET', body, params, signal } = {}) {
   const token = getToken()
   const headers = { Accept: 'application/json' }
-  // O login precisa ficar acessível mesmo com um token velho/inválido salvo no navegador;
+  // O login precisa ficar acessível mesmo com um token velho/inválido salvo no navegador
   // do contrário o próprio token expirado bloqueia a tentativa de entrar de novo
   if (token && path !== '/auth/login/') headers.Authorization = `Token ${token}`
 
@@ -124,7 +124,7 @@ export const apiClient = {
   delete: (path, options) => request(path, { ...options, method: 'DELETE' }),
 }
 
-// A API pagina listas (DRF PageNumberPagination); a maioria das telas cabe em uma página,
+// A API pagina listas (DRF PageNumberPagination), a maioria das telas cabe em uma página,
 // mas isso garante que nenhum item fique escondido caso o cadastro cresça
 export async function listarTodos(path, params) {
   let resultado = await apiClient.get(path, { params })

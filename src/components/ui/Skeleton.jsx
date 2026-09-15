@@ -1,4 +1,4 @@
-// Espaço animado que antecipa o formato do conteúdo enquanto ele chega.
+// Espaço animado que antecipa o formato do conteúdo enquanto ele chega
 import './Skeleton.css'
 
 // Reserva um espaço enquanto a informação ainda está chegando.

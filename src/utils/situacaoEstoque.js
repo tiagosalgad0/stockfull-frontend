@@ -1,6 +1,6 @@
 // Decide qual situação mais clara deve aparecer para cada ingrediente
-// Deriva um rótulo de situação (para o StatusBadge) a partir dos dados já calculados
-// pelo backend — nunca reaplica a regra de negócio, só prioriza o que exibir
+// Deriva um rótulo de situação (para o StatusBadge) a partir dos dados já calculados pelo backend
+
 export function situacaoRegistro(registro, meta) {
   if (registro.faltou) return 'falta'
   const estoqueFinalConhecido = registro.estoque_final !== null && registro.estoque_final !== undefined

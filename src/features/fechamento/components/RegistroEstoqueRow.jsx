@@ -1,4 +1,4 @@
-// Uma linha editável para registrar a situação de cada ingrediente no fechamento.
+// Uma linha editável para registrar a situação de cada ingrediente no fechamento
 import { useState } from 'react'
 import Button from '../../../components/ui/Button'
 import Badge from '../../../components/ui/Badge'
@@ -6,7 +6,7 @@ import StatusBadge from '../../../components/ui/StatusBadge'
 import { UNIDADE_LABEL } from '../../ingredientes/services/ingredienteService'
 import { situacaoRegistro } from '../../../utils/situacaoEstoque'
 
-// Converte os dados recebidos em valores prontos para o formulário.
+// Converte os dados recebidos em valores prontos para o formulário
 function paraForm(registro) {
   return {
     estoque_inicial: registro?.estoque_inicial ?? '',
@@ -17,18 +17,18 @@ function paraForm(registro) {
   }
 }
 
-// Exibe e atualiza os dados de um ingrediente no fechamento.
+// Exibe e atualiza os dados de um ingrediente no fechamento
 export default function RegistroEstoqueRow({ ingrediente, registro, readOnly, onSave }) {
   const [valores, setValores] = useState(paraForm(registro))
   const [erro, setErro] = useState('')
   const [salvando, setSalvando] = useState(false)
 
-  // Atualiza apenas o dado do campo que foi alterado.
+  // Atualiza apenas o dado do campo que foi alterado
   function set(campo, valor) {
     setValores((v) => ({ ...v, [campo]: valor }))
   }
 
-  // Guarda as informações preenchidas para este ingrediente.
+  // Guarda as informações preenchidas para este ingrediente
   async function salvar() {
     setErro('')
     if (valores.estoque_inicial === '' || valores.consumo === '') {

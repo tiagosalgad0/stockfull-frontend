@@ -1,9 +1,9 @@
-// Tabela genérica que cuida da lista, do carregamento e de mensagens sem dados.
+// Tabela genérica que cuida da lista, do carregamento e de mensagens sem dados
 import Skeleton from './Skeleton'
 import EmptyState from './EmptyState'
 import './DataTable.css'
 
-// Transforma dados em uma tabela com estados de espera e vazio.
+// Transforma dados em uma tabela com estados de espera e vazio
 export default function DataTable({
   columns,
   data,

@@ -1,4 +1,4 @@
-// Mapa das páginas do sistema e de quais delas exigem login.
+// Mapa das páginas do sistema e de quais delas exigem login
 import { Navigate, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
 import AppLayout from '../components/layout/AppLayout'
@@ -10,7 +10,7 @@ import Compras from '../features/compras/pages/Compras'
 import Historico from '../features/historico/pages/Historico'
 import HistoricoDetalhe from '../features/historico/pages/HistoricoDetalhe'
 
-// Escolhe qual página mostrar para cada endereço do sistema.
+// Escolhe qual página mostrar para cada endereço do sistema
 export default function AppRoutes() {
   return (
     <Routes>

@@ -1,4 +1,4 @@
-// Página em que o estoque é registrado, calculado e finalmente encerrado.
+// Página em que o estoque é registrado, calculado e finalmente encerrado
 import { useEffect, useState } from 'react'
 import PageHeader from '../../../components/ui/PageHeader'
 import Card from '../../../components/ui/Card'
@@ -15,7 +15,7 @@ import * as fechamentoService from '../services/fechamentoService'
 const MES_ATUAL = new Date().getMonth() + 1
 const ANO_ATUAL = new Date().getFullYear()
 
-// Cuida da tela de abertura, registro e encerramento do período.
+// Cuida da tela de abertura, registro e encerramento do período
 export default function Fechamento() {
   const toast = useToast()
   const [carregando, setCarregando] = useState(true)
@@ -32,7 +32,7 @@ export default function Fechamento() {
   const [resultado, setResultado] = useState(null)
   const [sugestoes, setSugestoes] = useState([])
 
-  // Busca os dados necessários para preencher a tela de fechamento.
+  // Busca os dados necessários para preencher a tela de fechamento
   async function carregarTudo() {
     setCarregando(true)
     try {
@@ -74,7 +74,7 @@ export default function Fechamento() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Cria um novo período usando o ano e o mês informados.
+  // Cria um novo período usando o ano e o mês informados
   async function abrirPeriodo(e) {
     e.preventDefault()
     setAbrindo(true)
@@ -90,7 +90,7 @@ export default function Fechamento() {
     }
   }
 
-  // Guarda uma linha de estoque e atualiza a lista exibida.
+  // Guarda uma linha de estoque e atualiza a lista exibida
   async function salvarRegistro(dados) {
     const existente = registros[dados.ingrediente]
     const salvo = existente
@@ -99,7 +99,7 @@ export default function Fechamento() {
     setRegistros((r) => ({ ...r, [dados.ingrediente]: salvo }))
   }
 
-  // Pede o cálculo do fechamento com os registros já informados.
+  // Pede o cálculo do fechamento com os registros já informados
   async function calcular() {
     setCalculando(true)
     try {
@@ -113,7 +113,7 @@ export default function Fechamento() {
     }
   }
 
-  // Finaliza o período depois de apresentar o resultado.
+  // Finaliza o período depois de apresentar o resultado
   async function encerrar() {
     setEncerrando(true)
     try {
@@ -128,7 +128,7 @@ export default function Fechamento() {
     }
   }
 
-  // Confirma a nova meta sugerida para um ingrediente.
+  // Confirma a nova meta sugerida para um ingrediente
   async function confirmarMeta(sugestao) {
     try {
       await ingredienteService.confirmarNovaMeta(sugestao.ingrediente_id, sugestao.nova_meta_sugerida)

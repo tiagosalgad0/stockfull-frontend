@@ -1,9 +1,9 @@
-// Menu principal para trocar de área sem sair do sistema.
+// Menu principal para trocar de área sem sair do sistema
 import { NavLink } from 'react-router-dom'
 import Logo from '../branding/Logo'
 import './Sidebar.css'
 
-// Ícones minimalistas usados só para dar apoio visual ao rótulo de cada link.
+// Ícones minimalistas usados só para dar apoio visual ao rótulo de cada link
 const ICONES = {
   dashboard: (
     <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -42,7 +42,7 @@ const ICONES = {
 }
 
 // Agrupado por etapa do fluxo do produto: primeiro o dia a dia do estoque,
-// depois o que já aconteceu (histórico). Só entram aqui telas que existem de verdade.
+// depois o que já aconteceu (histórico). Só entram aqui telas que existem de verdade
 const GRUPOS = [
   {
     links: [
@@ -58,7 +58,7 @@ const GRUPOS = [
   },
 ]
 
-// Monta os links do menu principal.
+// Monta os links do menu principal
 export default function Sidebar({ open, onNavigate }) {
   return (
     <aside className={`sidebar ${open ? 'sidebar--open' : ''}`}>

@@ -1,9 +1,9 @@
-// Lista de opções padronizada, com rótulo e mensagem de ajuda.
+// Lista de opções padronizada, com rótulo e mensagem de ajuda
 import { useId } from 'react'
 import FormField from './FormField'
 import './Field.css'
 
-// Mostra uma lista de opções já acompanhada de rótulo.
+// Mostra uma lista de opções já acompanhada de rótulo
 export default function Select({ label, error, hint, id, options, placeholder, ...rest }) {
   const generatedId = useId()
   const fieldId = id || generatedId

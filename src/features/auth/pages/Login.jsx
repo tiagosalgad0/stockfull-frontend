@@ -1,4 +1,4 @@
-// Tela de entrada: confere os dados básicos e leva a pessoa para a área solicitada.
+// Tela de entrada: confere os dados básicos e leva a pessoa para a área solicitada
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../app/providers/AuthProvider'
@@ -18,7 +18,7 @@ const DESTAQUES = [
 
 const BARRAS_PREVIEW = [38, 62, 48, 80, 58, 92, 70]
 
-// Cuida da tela em que a pessoa entra na conta.
+// Cuida da tela em que a pessoa entra na conta
 export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
@@ -30,7 +30,7 @@ export default function Login() {
   const [formError, setFormError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Confere se os dados obrigatórios foram preenchidos antes de continuar.
+  // Confere se os dados obrigatórios foram preenchidos antes de continuar
   function validar() {
     const proximosErros = {}
     if (!username.trim()) proximosErros.username = 'Informe seu usuário.'
@@ -39,7 +39,7 @@ export default function Login() {
     return Object.keys(proximosErros).length === 0
   }
 
-  // Envia os dados preenchidos depois de conferir o formulário.
+  // Envia os dados preenchidos depois de conferir o formulário
   async function handleSubmit(e) {
     e.preventDefault()
     setFormError('')

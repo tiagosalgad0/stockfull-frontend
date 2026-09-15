@@ -1,4 +1,4 @@
-// Exibe os ingredientes e resultados guardados em um fechamento escolhido.
+// Exibe os ingredientes e resultados guardados em um fechamento escolhido
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import PageHeader from '../../../components/ui/PageHeader'
@@ -16,7 +16,7 @@ const MESES = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
 ]
 
-// Mostra o que aconteceu dentro de um fechamento escolhido.
+// Mostra o que aconteceu dentro de um fechamento escolhido
 export default function HistoricoDetalhe() {
   const { id } = useParams()
   const navigate = useNavigate()

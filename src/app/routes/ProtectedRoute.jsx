@@ -1,9 +1,9 @@
-// Portaria das páginas internas: só deixa passar quem está com a sessão ativa.
+// Portaria das páginas internas: só deixa passar quem está com a sessão ativa
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 import Spinner from '../../components/ui/Spinner'
 
-// Confere a sessão antes de liberar uma página interna.
+// Confere a sessão antes de liberar uma página interna
 export default function ProtectedRoute() {
   const { isAuthenticated, isChecking } = useAuth()
   const location = useLocation()
