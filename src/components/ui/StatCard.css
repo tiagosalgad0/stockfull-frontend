@@ -23,11 +23,11 @@
   right: 0;
   height: 3px;
   background: var(--color-primary);
-  opacity: 0.7;
 }
 
 .stat-card--neutral::before {
-  background: var(--color-border);
+  background: var(--color-primary);
+  opacity: 0.35;
 }
 
 .stat-card--warning::before {
